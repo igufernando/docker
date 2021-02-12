@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    arteprata:
+     container_name: arteprata
+     image: brt.wp:1.0
+     expose:
+       - 80 
+     volumes:
+       - /var/www/html/arteprata:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: arteprata.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: arteprata_prod
+       WORDPRESS_DB_PASSWORD: ckM3V6REqW5QWBKS
+       WORDPRESS_DB_NAME: arteprata_prod
+       CERT_NAME: arteprata
+  networks:
+    default:
+      external:
+        name: docker01

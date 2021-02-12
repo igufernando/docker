@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    dusitio:
+     container_name: dusitio
+     image: wordpress:php7.0-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/dusitio:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: dusitio.com
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: dusitio_prod
+       WORDPRESS_DB_PASSWORD: hM55XgtsRR7X8RAN
+       WORDPRESS_DB_NAME: dusitio_prod
+       CERT_NAME: dusitio
+  networks:
+    default:
+      external:
+        name: docker01

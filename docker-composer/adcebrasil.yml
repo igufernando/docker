@@ -1,0 +1,23 @@
+  version: '3.3'
+
+  services:
+   adcebrasil:
+     container_name: adcebrasil
+     image: wordpress:php7.3-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/adcebrasil:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: adcebrasil.org.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: adcebrasil_prod
+       WORDPRESS_DB_PASSWORD: 9zghLHB4vwnSCVxs
+       WORDPRESS_DB_NAME: adcebrasil_prod 
+       #CERT_NAME: adcebrasil  
+       
+  networks:
+    default:
+      external:
+        name: docker01

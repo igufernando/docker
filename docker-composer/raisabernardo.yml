@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    raisabernardo:
+     container_name: raisabernardo
+     image: brt.wp:1.0
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/raisabernardo:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: raisabernardo.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: raisabernardo_prod
+       WORDPRESS_DB_PASSWORD: gg4cS8B2VqVb
+       WORDPRESS_DB_NAME: raisabernardo_prod
+       CERT_NAME: raisabernardo
+  networks:
+    default:
+      external:
+        name: docker01

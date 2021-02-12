@@ -1,0 +1,23 @@
+  version: '3.3'
+
+  services:
+   lojaizuz:
+     container_name: lojaizuz
+     image: wordpress:php7.3-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/lojaizuz:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: lojaizuz.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: lojaizuz_prod
+       WORDPRESS_DB_PASSWORD: sFrSm69h6T
+       WORDPRESS_DB_NAME: lojaizuz_prod 
+       CERT_NAME: lojaizuz  
+       
+  networks:
+    default:
+      external:
+        name: docker01

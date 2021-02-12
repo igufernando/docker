@@ -1,0 +1,10 @@
+route:
+   receiver: 'slack'
+
+receivers:
+   - name: 'slack'
+     slack_configs:
+        - send_resolved: true
+          username: 'igor'
+          channel: '#monitoramento_infra_bertholdo'
+          api_url: 'https://hooks.slack.com/services/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'

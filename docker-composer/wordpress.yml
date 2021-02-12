@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    wordpress_latest:
+     container_name: wordpress_latest
+     image: wordpress:latest
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/wordpress:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: wordpress.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: bertholdo_db
+       WORDPRESS_DB_PASSWORD: brtdba@3
+       WORDPRESS_DB_NAME: wordpress_latest
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

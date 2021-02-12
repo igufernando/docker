@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    emporiumdaindia:
+     container_name: emporiumdaindia
+     image: wordpress:latest
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/emporiumdaindia:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: emporiumdaindia.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: emporiumdaindia_prod
+       WORDPRESS_DB_PASSWORD: W5JHmcTjF83rkW4U
+       WORDPRESS_DB_NAME: emporiumdaindia_prod
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

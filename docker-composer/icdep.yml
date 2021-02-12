@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    icdep:
+     container_name: icdep
+     image: wordpress:latest
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/icdep:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: icdep.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: icdep_prod
+       WORDPRESS_DB_PASSWORD: YnuTzDE63bgpb6Uu
+       WORDPRESS_DB_NAME: icdep_prod
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

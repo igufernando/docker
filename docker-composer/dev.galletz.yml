@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    dev.galletz:
+     container_name: dev.galletz
+     image: brt.wp.v3:1.0
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/dev.galletz:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: galletz.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: dev.galletz
+       WORDPRESS_DB_PASSWORD: brtdba@3
+       WORDPRESS_DB_NAME: dev.galletz
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    dev.lojanovosrumos:
+     container_name: dev.lojanovosrumos
+     image: brt.wp.v3:2.0
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/dev.lojanovosrumos:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: lojanovosrumos.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: lojanovosrumos
+       WORDPRESS_DB_PASSWORD: BRKRX3EQEv3Kv
+       WORDPRESS_DB_NAME: dev.lojanovosrumos
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

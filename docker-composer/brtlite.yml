@@ -1,0 +1,23 @@
+  version: '3.3'
+
+  services:
+   brtlite:
+     container_name: brtlite
+     image: wordpress:php7.2-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/brtlite:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: brtlite.brtloja.com.br
+       #VIRTUAL_HOST: azeon.com.br 
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: brtlite_prod
+       WORDPRESS_DB_PASSWORD: LWn5D5dATFRy
+       WORDPRESS_DB_NAME: brtlite_prod 
+       #CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

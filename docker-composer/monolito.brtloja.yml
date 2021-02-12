@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    editoramonolito_homologa:
+     container_name: editoramonolito_homologa
+     image: wordpress:latest
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/editoramonolito.homologa:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: editoramonolito.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: monolito_homologa
+       WORDPRESS_DB_PASSWORD: s8xd4t7NXsBYYHkJ
+       WORDPRESS_DB_NAME: monolito_homologa
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

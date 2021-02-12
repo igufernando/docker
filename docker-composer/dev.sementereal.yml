@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    dev.sementereal:
+     container_name: dev.sementereal
+     image: brt.wp.v3:1.0
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/dev.sementereal:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: sementereal.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: dev.sementereal
+       WORDPRESS_DB_PASSWORD: brtdba@3
+       WORDPRESS_DB_NAME: dev.sementereal
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

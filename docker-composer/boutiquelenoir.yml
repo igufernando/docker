@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    boutiquelenoir:
+     container_name: boutiquelenoir
+     image: wordpress:php7.0-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/boutiquelenoir:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: boutiquelenoir.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: boutiquelenoir_prod
+       WORDPRESS_DB_PASSWORD: 8vR4Feb9acuZCRH6
+       WORDPRESS_DB_NAME: boutiquelenoir_prod 
+       CERT_NAME: boutiquelenoir
+  networks:
+    default:
+      external:
+        name: docker01

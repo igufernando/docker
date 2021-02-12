@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    celeiropetshop:
+     container_name: celeiropetshop
+     image: brt.wp:1.0
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/celeiropetshop:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: celeiropetshop.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: celeiropetshop_prod
+       WORDPRESS_DB_PASSWORD: YnuTzDE63bgpb6Uu
+       WORDPRESS_DB_NAME: celeiropetshop_prod 
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

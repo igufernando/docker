@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    acsasemijoias:
+     container_name: acsasemijoias
+     image: brt.wp:1.0
+     expose:
+       - 80 
+     volumes:
+       - /var/www/html/acsasemijoias:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: acsasemijoias.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: acsasemijoias_prod
+       WORDPRESS_DB_PASSWORD: e'V5`Y9cECR?v+M#
+       WORDPRESS_DB_NAME: acsasemijoias_prod
+       CERT_NAME: acsasemijoias
+  networks:
+    default:
+      external:
+        name: docker01

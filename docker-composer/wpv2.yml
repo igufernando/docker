@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    wpv2:
+     container_name: wpv2
+     image: wordpress:latest
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/wpv2:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: wpv2.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: bertholdo_db
+       WORDPRESS_DB_PASSWORD: brtdba@3
+       WORDPRESS_DB_NAME: brtloja_wp2
+       CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

@@ -1,0 +1,22 @@
+  version: '3.3'
+
+  services:
+    dev.blog.baccos:
+     container_name: dev.blog.baccos
+     image: wordpress:php7.3-apache
+     expose:
+       - 80
+     volumes:
+       - /var/www/html/dev.blog.baccos:/var/www/html/
+     restart: always
+     environment:
+       VIRTUAL_HOST: blog.baccos.brtloja.com.br
+       WORDPRESS_DB_HOST: 172.31.59.231:3306
+       WORDPRESS_DB_USER: blog_baccos_dev
+       WORDPRESS_DB_PASSWORD: QDUqF32uxh
+       WORDPRESS_DB_NAME: blog_baccos_dev
+       #CERT_NAME: brtloja
+  networks:
+    default:
+      external:
+        name: docker01

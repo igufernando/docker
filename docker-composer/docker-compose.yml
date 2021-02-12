@@ -1,0 +1,32 @@
+  version: '3.3'
+
+  services:
+   phpmyadmin:
+     container_name: phpmyadmin
+     image: bitnami/phpmyadmin:latest
+     ports:
+       - 8081:80
+       - 8443:443
+     environment:
+      DATABASE_HOST: 172.31.59.231:3306
+
+   nginx-proxy:
+     image: jwilder/nginx-proxy
+     container_name: nginx-proxy
+     restart: always
+     volumes:
+      - /etc/nginx/conf.d/:/etc/nginx/conf.d/      
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/ssl/:/etc/nginx/certs
+
+     ports:
+      - 80:80
+      - 443:443
+
+  volumes:
+    db_data:
+
+  networks:
+    default:
+      external:
+        name: docker01
